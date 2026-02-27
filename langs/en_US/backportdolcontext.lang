@@ -27,3 +27,4 @@ BackportDolContextAboutPage = Backport Dolibarr JS Context about page
 
 
 BACKPORT_CONTEXT_PUBLIC = Activate Context for public pages
+QuickMemoRequireModBackportdolcontext = Require module "Backport Dolibarr JS Context"
