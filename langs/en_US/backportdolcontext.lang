@@ -1,0 +1,29 @@
+# Translation file
+
+#
+# Generic
+#
+
+# Module label 'ModuleBackportDolContextName'
+ModuleBackportDolContextName = Backport DolContext
+# Module description 'ModuleBackportDolContextDesc'
+ModuleBackportDolContextDesc = Backport dolibarr JS context from V24
+
+#
+# Admin page
+#
+BackportDolContextSetup = Dolibarr JS Context setup
+Settings = Settings
+BackportDolContextSetupPage = Dolibarr JS Context setup page
+NewSection=New section
+
+
+#
+# About page
+#
+About = About
+BackportDolContextAbout = About Backport Dolibarr JS Context
+BackportDolContextAboutPage = Backport Dolibarr JS Context about page
+
+
+BACKPORT_CONTEXT_PUBLIC = Activate Context for public pages
