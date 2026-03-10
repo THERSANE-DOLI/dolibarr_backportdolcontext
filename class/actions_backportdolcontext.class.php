@@ -148,6 +148,7 @@ class ActionsBackportDolContext extends CommonHookActions
 				// Langs tool see Documentation at admin/tools/ui/dolibarr-context/index.php
 				$jsContextFiles[] = 'dolibarr-tool.langs.js';
 				$jsContextVars['MAIN_LANG_DEFAULT'] = $langs->getDefaultLang();// For langs tool
+				$jsContextVars['DOL_URL_ROOT'] = DOL_URL_ROOT;
 				$jsContextVars['DOL_LANG_INTERFACE_URL'] = dol_buildpath('backportdolcontext/backport/langs/langs-tool-interface.php', 1);// For langs tool
 			}
 
