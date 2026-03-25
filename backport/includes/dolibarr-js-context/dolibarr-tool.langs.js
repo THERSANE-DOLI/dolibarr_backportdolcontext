@@ -115,7 +115,6 @@ document.addEventListener('Dolibarr:Init', function(e) {
 
 			try {
 
-				Dolibarr.log('Lang tool : clear bd');
 				const db = await openDB(true);
 				const tx = db.transaction('langs', 'readwrite');
 				const store = tx.objectStore('langs');

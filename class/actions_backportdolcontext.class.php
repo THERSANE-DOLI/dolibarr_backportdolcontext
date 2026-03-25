@@ -161,6 +161,11 @@ class ActionsBackportDolContext extends CommonHookActions
 			print '<script nonce="'.getNonce().'">Dolibarr.setContextVars('.json_encode($jsContextVars).');</script>'."\n";
 
 			// -- END OF DEFINITION OF DOLIBARR JS CONTEXT AND TOOLS
+
+
+			// INCLUDE FOOTER JS FOR Dynamic reload DOM via Dolibarr hook
+			$footerJsPathUrl = dol_buildpath('backportdolcontext/backport/lib_foot.js.php', 1);
+			print '<script nonce="'.getNonce().'" src="'.$footerJsPathUrl.'" ></script>'."\n";
 		}
 
 	}
