@@ -135,8 +135,16 @@ var Dolibarr = {
 
 	/**
 	 * Internal logger
-	 * Only prints when debug mode is enabled
-	 * @param {string} msg
+	 * Outputs logs only when debug mode is enabled.
+	 *
+	 * Why use Dolibarr.log instead of console.log?
+	 * Dolibarr.log avoids console noise caused by the Dolibarr core context
+	 * or internal notices that can easily spam the console.
+	 *
+	 * This allows module developers to focus on their own logs
+	 * without being distracted by unrelated global Dolibarr activity.
+	 *
+	 * @param {string} msg Log message
 	 */
 	log(msg) {},
 
