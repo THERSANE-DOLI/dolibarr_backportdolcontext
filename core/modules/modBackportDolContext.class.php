@@ -76,9 +76,9 @@ class modBackportDolContext extends DolibarrModules
 		$this->editor_squarred_logo = '';					// Must be image filename into the module/img directory followed with @modulename. Example: 'myimage.png@backportdolcontext'
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
-		$this->version = '1.2';
+		$this->version = '1.3.0';
 		// Url to the file with your last numberversion of this module
-		//$this->url_last_version = 'http://www.example.com/versionmodule.txt';
+		$this->url_last_version = 'http://s.thersane.fr/module-version/'. strtolower($this->name) .'_'.$this->numero.'.txt';
 
 		// Key used in llx_const table to save module status enabled/disabled (where BACKPORTDOLCONTEXT is value of property name of module in uppercase)
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);

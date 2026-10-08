@@ -128,6 +128,48 @@ jQuery(function() {
 		Dolibarr.on('initNewContent', ({ targets }) => {
 			targets.forEach(container => initTooltipDialogs(container, footerConst.classfortooltiponclicktextWidth));
 		});
+
+		// Backport of V24 core/tpl/ajaxrow.tpl.php : re-enable drag and drop on a reloaded document line.
+		// Only the handles of the reloaded row are bound, other rows keep their single binding.
+		Dolibarr.on('reloadDocumentLine', /** @param {{lineId:number, lineElement:string}} data */ function (data) {
+			const row = document.getElementById('row-' + data.lineId);
+			if (!row || row.dataset.backportDndBound) {
+				return;
+			}
+
+			const $row = jQuery(row);
+			$row.find('.imgupforline, .imgdownforline').hide();
+			$row.find('.lineupdown').removeAttr('href');
+
+			// tableDnDConfig is only set when ajaxrow.tpl.php enabled drag and drop (not on phone, editline, single line...)
+			const table = row.closest('table');
+			if (!table || !table.tableDnDConfig || !jQuery.tableDnD || !table.tableDnDConfig.dragHandle) {
+				return;
+			}
+
+			const config = table.tableDnDConfig;
+			const $handles = $row.find(config.dragHandle);
+			const $refHandle = jQuery(table).find(config.dragHandle).not($handles).first();
+			if ($refHandle.length) {
+				$handles.css({
+					'background-image': $refHandle.css('background-image'),
+					'background-repeat': 'no-repeat',
+					'background-position': 'center center'
+				});
+			}
+
+			// Same binding as jquery.tablednd makeDraggable()
+			$handles.on('touchstart mousedown', function (e) {
+				jQuery.tableDnD.initialiseDrag(row, table, this, e, config);
+				return false;
+			}).on('mouseenter', function () {
+				jQuery(this).addClass('showDragHandle');
+			}).on('mouseleave', function () {
+				jQuery(this).removeClass('showDragHandle');
+			});
+
+			row.dataset.backportDndBound = '1';
+		});
 	};
 
 });
