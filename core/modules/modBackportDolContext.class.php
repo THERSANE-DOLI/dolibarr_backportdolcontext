@@ -76,7 +76,7 @@ class modBackportDolContext extends DolibarrModules
 		$this->editor_squarred_logo = '';					// Must be image filename into the module/img directory followed with @modulename. Example: 'myimage.png@backportdolcontext'
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated', 'experimental_deprecated' or a version string like 'x.y.z'
-		$this->version = '1.3.0';
+		$this->version = '1.3.1';
 		// Url to the file with your last numberversion of this module
 		$this->url_last_version = 'http://s.thersane.fr/module-version/'. strtolower($this->name) .'_'.$this->numero.'.txt';
 
@@ -154,7 +154,7 @@ class modBackportDolContext extends DolibarrModules
 
 		// Prerequisites
 		$this->phpmin = array(7, 1); // Minimum version of PHP required by module
-		$this->need_dolibarr_version = array(20, -3); // Minimum version of Dolibarr required by module
+		$this->need_dolibarr_version = array(18, -3); // Minimum version of Dolibarr required by module
 		$this->need_javascript_ajax = 0;
 
 		// Messages at activation
@@ -180,7 +180,7 @@ class modBackportDolContext extends DolibarrModules
 			$conf->backportdolcontext = new stdClass();
 			$conf->backportdolcontext->enabled = 0;
 		}
-		else if(!(intval(DOL_VERSION) >= 20 && intval(DOL_VERSION) < 24)) {
+		else if(!(intval(DOL_VERSION) >= 18 && intval(DOL_VERSION) < 24)) {
 			$conf->backportdolcontext = new stdClass();
 			$conf->backportdolcontext->enabled = 0;
 		}

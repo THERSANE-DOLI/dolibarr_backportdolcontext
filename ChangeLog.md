@@ -1,6 +1,10 @@
 # CHANGELOG BACKPORTDOLCONTEXT FOR [DOLIBARR ERP CRM](https://www.dolibarr.org)
 
 
+- FIX: Compatibility with Dolibarr 18 and 19 :   1.3.1
+  - The module required Dolibarr 20 and disabled itself below. Minimum version is now Dolibarr 18,
+    with a backport of the CommonHookActions class (Dolibarr 19).
+
 - NEW: Backport reloadDocumentLine hook listener for document lines drag and drop :   1.3.0
   - Re-enable drag and drop on a document line reloaded in ajax (V24 core/tpl/ajaxrow.tpl.php behaviour),
     only the handles of the reloaded row are bound

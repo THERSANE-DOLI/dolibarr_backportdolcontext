@@ -24,7 +24,11 @@
  * Put detailed description here.
  */
 
-require_once DOL_DOCUMENT_ROOT.'/core/class/commonhookactions.class.php';
+if (file_exists(DOL_DOCUMENT_ROOT.'/core/class/commonhookactions.class.php')) {
+	require_once DOL_DOCUMENT_ROOT.'/core/class/commonhookactions.class.php';
+} else {
+	require_once __DIR__.'/../backport/core/class/commonhookactions.class.php'; // Dolibarr V18
+}
 
 /**
  * Class ActionsBackportDolContext
